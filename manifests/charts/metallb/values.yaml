@@ -335,8 +335,8 @@ speaker:
   frrMetrics:
     resources: {}
 
-  ipAddressPool:
-    value: 172.18.196.1-172.18.196.250
+ipAddressPool:
+  value: 172.18.196.1-172.18.196.250
 
 crds:
   enabled: true
