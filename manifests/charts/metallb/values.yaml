@@ -223,10 +223,11 @@ controller:
     # nobody
     runAsUser: 65534
     fsGroup: 65534
-  resources: {}
+  resources:
+    {}
     # limits:
-      # cpu: 100m
-      # memory: 100Mi
+    # cpu: 100m
+    # memory: 100Mi
   nodeSelector: {}
   tolerations: []
   priorityClassName: ""
@@ -283,10 +284,11 @@ speaker:
   ## By default secretName: {{ "metallb.fullname" }}-memberlist
   ##
   # secretName:
-  resources: {}
+  resources:
+    {}
     # limits:
-      # cpu: 100m
-      # memory: 100Mi
+    # cpu: 100m
+    # memory: 100Mi
   nodeSelector: {}
   tolerations: []
   priorityClassName: ""
@@ -332,6 +334,9 @@ speaker:
 
   frrMetrics:
     resources: {}
+
+ipAddressPool:
+  value: 172.18.196.1-172.18.196.250
 
 crds:
   enabled: true
