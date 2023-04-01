@@ -8,7 +8,7 @@ terraform {
 
 locals {
   env       = reverse(split("/", get_terragrunt_dir()))[1] # = dev
-  chartPath = "${get_terragrunt_dir()}/../../../../manifests/charts/argo-cd"
+  chartPath = "${get_terragrunt_dir()}/../../../../manifests/argo-cd"
 }
 
 dependency "cluster" {
