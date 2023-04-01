@@ -6,12 +6,12 @@ resource "helm_release" "argocd" {
   create_namespace = true
 }
 
-resource "kubectl_manifest" "metallb" {
+resource "kubectl_manifest" "addons" {
   yaml_body = <<YAML
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: charts
+  name: addons
   namespace: argocd
 spec:
   generators:
@@ -29,10 +29,10 @@ spec:
       source:
         repoURL: https://github.com/Looty/homelab.git
         targetRevision: HEAD
-        path: manifests/addons/{{addon}}
+        path: 'manifests/addons/{{addon}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: {{namespace}}
+        namespace: '{{namespace}}'
       syncPolicy:
         automated:
           prune: true
