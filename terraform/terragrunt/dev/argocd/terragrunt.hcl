@@ -7,8 +7,9 @@ terraform {
 }
 
 locals {
-  env       = reverse(split("/", get_terragrunt_dir()))[1] # = dev
-  chartPath = "${get_terragrunt_dir()}/../../../../manifests/argo-cd"
+  env                = reverse(split("/", get_terragrunt_dir()))[1] # = dev
+  chartPath          = "${get_terragrunt_dir()}/../../../../manifests/argo-cd"
+  applicationSetPath = "${get_terragrunt_dir()}/../../../modules/argocd/applicationset.yaml"
 }
 
 dependency "cluster" {
@@ -21,5 +22,6 @@ inputs = {
   client_certificate     = dependency.cluster.outputs.client_certificate
   client_key             = dependency.cluster.outputs.client_key
 
-  chartPath = local.chartPath
+  chartPath          = local.chartPath
+  applicationSetPath = local.applicationSetPath
 }
