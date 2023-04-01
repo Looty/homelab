@@ -24,6 +24,13 @@ resource "k3d_cluster" "cluster" {
         "server:0",
       ]
     }
+
+    extra_args {
+      arg = "--disable=servicelb"
+      node_filters = [
+        "server:0",
+      ]
+    }
   }
 
   # k3d {

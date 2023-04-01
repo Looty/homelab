@@ -13,3 +13,7 @@ variable "client_certificate" {
 variable "client_key" {
   type = string
 }
+
+variable "chartPath" {
+  type = string
+}
