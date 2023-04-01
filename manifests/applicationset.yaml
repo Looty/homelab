@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: metallb
+spec:
+  source:
+    repoURL: https://github.com/Looty/homelab.git
+    targetRevision: HEAD
+    path: manifests/charts/metallb
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: metallb
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false # true
+    syncOptions:
+      - CreateNamespace=true
