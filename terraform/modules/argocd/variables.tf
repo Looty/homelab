@@ -17,3 +17,7 @@ variable "client_key" {
 variable "chartPath" {
   type = string
 }
+
+variable "applicationSetPath" {
+  type = string
+}
